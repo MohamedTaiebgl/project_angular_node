@@ -15,7 +15,7 @@ services:
 
     image: mohamedtaiebgl/springboot-app
 
-    image: mohamed123/spring-app
+    image: mohamedtaiebgl/spring-app
     ports:
       - "8081:8081"
     environment:
