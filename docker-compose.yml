@@ -10,7 +10,8 @@ services:
       - "4200:80"
 
   spring-boot-app:
-    image: mohamedtaiebgl/spring-app
+    image: mohamedtaiebgl/springboot-app
+    
     ports:
       - "8081:8081"
     environment:
