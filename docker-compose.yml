@@ -3,12 +3,20 @@ version: "3.3"
 services:
 
   angular-app:
+<<<<<<< HEAD
     image: mohamedtaiebgl/angular-app
+=======
+    image: mohamed123/angular-app
+>>>>>>> 776194dafee3712072c9690b75b4896c367ee73c
     ports:
       - "4200:80"
 
   spring-boot-app:
+<<<<<<< HEAD
     image: mohamedtaiebgl/springboot-app
+=======
+    image: mohamed123/spring-app
+>>>>>>> 776194dafee3712072c9690b75b4896c367ee73c
     ports:
       - "8081:8081"
     environment:
