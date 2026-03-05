@@ -7,36 +7,38 @@ import { User } from '../models/User';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
-  usersList:User[]=[];
+  usersList: User[] = [];
+  firstName: string = '';  // <-- add these
+  lastName: string = '';   // <-- add these
 
-  constructor(private userService:UserService){}
+  constructor(private userService: UserService) { }
+
   ngOnInit(): void {
-    this.getAllUsers()
+    this.getAllUsers();
   }
 
-  getAllUsers(){
-      this.userService.getAllUsers().subscribe(res=>{
-        res.map(((obj: User)=>{
-          this.usersList.push(obj)
-        }))
-      },
-      error=>{
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe(res => {
+      res.map((obj: User) => {
+        this.usersList.push(obj);
+      });
+    },
+      error => {
         alert(error);
-      })
+      });
   }
 
-  addUser(firstname:string,lastname:string){
-      this.userService.addUser(firstname,lastname).subscribe(res=>{
-        window.location.reload();
-    })
-  }
-  deleteUser(id:string){
-    this.userService.deleteUser(id).subscribe(res=>{
+  addUser() {   // <-- remove parameters, use component variables
+    this.userService.addUser(this.firstName, this.lastName).subscribe(res => {
       window.location.reload();
-    })
+    });
   }
 
-
+  deleteUser(id: string) {
+    this.userService.deleteUser(id).subscribe(res => {
+      window.location.reload();
+    });
+  }
 }
